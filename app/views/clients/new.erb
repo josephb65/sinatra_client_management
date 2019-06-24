@@ -1,0 +1,29 @@
+<% if @client && @client.errors %>
+  <% @client.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<h3>Add a new client</h3>
+
+<form method="POST" action="/clients">
+  <label>Client Name: </label>
+  <input type="text" name="full_name" value="<%= @client.full_name if @client %>">
+  <br><br>
+  <label>Client Age: </label>
+  <input type="text" name="age" value="<%= @client.age if @client %>">
+  <br><br>
+  <label>Notes: </label>
+  <input type="text" name="notes" value="<%= @client.notes if @client %>">
+  <br><br>
+
+  <h4>Course</h4>
+  <label>Course Name:</label>
+  <input type="text" name="new_course" id="course[name]">
+  <br><br>
+
+  <a href="/clients">Back to the list</a>
+  <br><br>
+
+  <input type="submit" value="Add New Client">
+</form>

@@ -1,0 +1,14 @@
+<h3>Private Etiquette Courses</h3>
+<br><br>
+
+<ol>
+  <% @courses.each do |course| %>
+  <li><p><a href="/courses/<%= course.id %>"><%= course.name %></a> - <%= course.num_of_hours %> hours.</p></li>
+    <p>Status: <%= course.status %></p>
+    <p>Date: <%= course.date %></p></li>
+  <a href="/courses/<%= course.id %>/edit">Edit</a>
+  <br><br>
+  <% end %>
+</ol>
+
+<h3><a href="/courses/new">Add a new course</a></h3>
